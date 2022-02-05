@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poor Story', cursive;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6A8F92;
+}
+
+section{
+    position: relative;
+    width: 500px;
+    height: 650px;
+    margin: 32px 0 0 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #DAECEC;
+}
+
+section::after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-size: 640px 640px;
+  background-position: center;
+  background-image: url(./Bamboo.png);
+}
+
+.UserPage--wrapper{
+  position: relative;
+  z-index: 3;
+}
+
+.UserPage--wrapper p{
+  font-size: 32px;
+  color: #000;
+
+}
+
+#UserPage--btn{
+  width: 400px;
+  height: 50px;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #608182;
+  transition: all 0.4s;
+}
+
+#UserPage--btn:hover{
+  border: 3px solid #608182;
+  background-color: #6A8F92;
+}
