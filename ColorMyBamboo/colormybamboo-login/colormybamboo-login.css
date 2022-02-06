@@ -107,7 +107,6 @@ section::after{
 
 .login--btn--area{
     margin-top: 70px;
-
 }
 
 .login--btn--area button{
@@ -117,5 +116,11 @@ section::after{
     font-size: 20px;
     border: none;
     border-radius: 25px;
+    cursor: pointer;
     background: #608182;
 }
+
+.login--btn--area button:hover{
+    border: 3px solid #608182;
+    background-color: #6A8F92;
+}  

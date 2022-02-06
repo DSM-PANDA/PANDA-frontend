@@ -50,12 +50,12 @@ section::after{
   text-align: center;
 }
 
-.login--btn--area{
+.home--btn--area{
   position: relative;
   z-index: 3;
 }
 
-.login--btn--area button{
+.home--btn--area button{
   position: relative;
   width: 100%;
   height: 50px;
@@ -74,6 +74,6 @@ section::after{
   background-color: #6A8F92;
 }
 
-#btn1{
+#home--btn1{
   margin-top: 390px;
 }

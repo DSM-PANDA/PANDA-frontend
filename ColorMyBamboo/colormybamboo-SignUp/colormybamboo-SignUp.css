@@ -36,9 +36,7 @@ section::after{
     background-size: 640px 640px;
     background-position: center;
     background-image: url(./Bamboo.png);
-    opacity: 0.2;       
-
-
+    opacity: 0.2;
 }
 
 .SignUp--wrapper{
@@ -117,5 +115,11 @@ section::after{
     font-size: 20px;
     border: none;
     border-radius: 25px;
+    cursor: pointer;
     background: #608182;
 }
+
+.SignUp--btn--area button:hover{
+    border: 3px solid #608182;
+    background-color: #6A8F92;
+}  
