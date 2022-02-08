@@ -35,7 +35,7 @@ section::after{
     content: "";
     background-size: 640px 640px;
     background-position: center;
-    background-image: url(./Bamboo.png);
+    background-image: url(./home-bamboo.png);
 }
 
 .home--wrapper{
