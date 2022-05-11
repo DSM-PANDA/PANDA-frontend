@@ -1,10 +1,10 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import ContainerBox from "./ContainerBox";
 import Bamboo from "../img/Bamboo.png";
 import Circle1 from "../img/loginCircle1.png";
 import Circle2 from "../img/loginCircle2.png";
-import ContainerBox from "./ContainerBox";
 
 const Container = styled.div`
   position: relative;
@@ -40,10 +40,10 @@ const Section = styled.div`
   &:after {
     content: "";
     position: absolute;
-    top: 80px;
-    left: 55px;
-    width: 420px;
-    height: 420px;
+    top: 100px;
+    left: 47px;
+    width: 450px;
+    height: 450px;
     background: url(${Bamboo});
     background-repeat: no-repeat;
     background-size: contain;
@@ -53,18 +53,43 @@ const Section = styled.div`
 `;
 
 const Elements = styled.div`
-  position: relative;
+  z-index: 10;
   display: flex;
   align-items: center;
   flex-direction: column;
   h1 {
     font-size: 50px;
   }
+
+  button {
+    position: absolute;
+    bottom: 35px;
+    left: 75px;
+    width: 390px;
+    height: 60px;
+    border-radius: 25px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+  }
+
+  #btn1 {
+    background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
+  }
+
+  #btn2 {
+    background: #639a55;
+    transition: 0.3s;
+  }
+
+  #btn2:hover {
+    opacity: 0;
+  }
 `;
 
 const Input = styled.div`
   z-index: 10;
-  margin-top: 10px;
+  margin: 10px 0 0;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -77,12 +102,12 @@ const Input = styled.div`
   input {
     width: 390px;
     height: 35px;
-    margin: 0 0 40px 0;
+    margin: 0 0 10px 0;
     padding: 50px 10px 0 0;
     background-color: transparent;
     border: none;
     border-bottom: 2px solid #608182;
-    font-size: 18px;
+    font-size: 16px;
     color: #000;
     outline: none;
   }
@@ -96,63 +121,13 @@ const Input = styled.div`
   }
 `;
 
-const IdInput = styled.div`
+const TextInput = styled.div`
   position: relative;
   width: 400px;
+  margin: 0 0;
 `;
 
-const PwInput = styled.div`
-  margin-bottom: 25px;
-  position: relative;
-  width: 400px;
-`;
-
-const Button = styled.div`
-  z-index: 10;
-  position: absolute;
-  bottom: 50px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  button {
-    margin-top: 20px;
-    width: 390px;
-    height: 55px;
-    border-radius: 21px;
-    border: none;
-    color: #fff;
-    font-size: 20px;
-  }
-
-  //button1
-  #loginBtn1 {
-    background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
-  }
-
-  #loginBtn2 {
-    background: #639a55;
-    transition: 0.3s;
-  }
-  #loginBtn2:hover {
-    opacity: 0;
-  }
-
-  //button2
-  #singupBtn1 {
-    top: 150px;
-    background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
-  }
-
-  #singupBtn2 {
-    background: #639a55;
-    transition: 0.3s;
-  }
-  #singupBtn2:hover {
-    opacity: 0;
-  }
-`;
-
-function LoginPage() {
+export default function SignUpPage() {
   return (
     <Container>
       <img id="Circle1" src={Circle1} alt="" />
@@ -160,46 +135,54 @@ function LoginPage() {
       <ContainerBox>
         <Section>
           <Elements>
-            <h1>LOGIN</h1>
+            <h1>SignUp</h1>
             <Input>
-              <IdInput>
+              <TextInput>
                 <input
                   type="text"
-                  name="id"
-                  id="id"
                   autocomplete="off"
                   required
+                  placeholder="10자 이내로 입력해 주세요."
                 />
-                <label for="id">ID</label>
-              </IdInput>
-              <PwInput>
+                <label>이름</label>
+              </TextInput>
+              <TextInput>
                 <input
                   type="text"
-                  name="pw"
-                  id="pw"
                   autocomplete="off"
                   required
+                  placeholder="영문 소문자 + 숫자를 4~20자 이내로 입력해주세요."
                 />
-                <label for="pw">PW</label>
-              </PwInput>
+                <label>아이디</label>
+              </TextInput>
+              <TextInput>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  required
+                  placeholder="영문 소문자 + 숫자를 6~20자 이내로 입력해주세요"
+                />
+                <label>비밀번호</label>
+              </TextInput>
+              <TextInput>
+                <input
+                  type="text"
+                  autocomplete="off"
+                  required
+                  placeholder="비밀번호를 다시 입력해주세요."
+                />
+                <label>비밀번호 확인</label>
+              </TextInput>
             </Input>
-            <Button>
-              <button id="loginBtn1" type="submit">
-                로그인 하기
-              </button>
-              <button id="loginBtn2" type="submit">
-                로그인 하기
-              </button>
-              <Link to="/SignUp">
-                <button id="singupBtn1">회원가입 하기</button>
-                <button id="singupBtn2">회원가입 하기</button>
-              </Link>
-            </Button>
+            <button id="btn1" type="submit">
+              대나무 만들기
+            </button>
+            <Link to="/">
+              <button id="btn2">대나무 만들기</button>
+            </Link>
           </Elements>
         </Section>
       </ContainerBox>
     </Container>
   );
 }
-
-export default LoginPage;
