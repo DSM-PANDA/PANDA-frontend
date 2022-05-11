@@ -41,17 +41,28 @@ const Elements = styled.div`
   }
 
   button {
+    position: absolute;
+    bottom: 35px;
+    left: 75px;
     width: 390px;
     height: 60px;
     border-radius: 25px;
     border: none;
-    background-color: #639a55;
     color: #fff;
     font-size: 30px;
   }
 
-  button:hover {
+  #btn1 {
     background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
+  }
+
+  #btn2 {
+    background: #639a55;
+    transition: 0.3s;
+  }
+
+  #btn2:hover {
+    opacity: 0;
   }
 `;
 
@@ -65,8 +76,9 @@ function MainPage() {
           <Elements>
             <h1>DSM-PANDA</h1>
             <img src={Bamboo} alt="" />
+            <button id="btn1">시작하기</button>
             <Link to="/login">
-              <button>시작하기</button>
+              <button id="btn2">시작하기</button>
             </Link>
           </Elements>
         </ContainerBox>
