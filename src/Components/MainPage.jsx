@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import styles from "../styles/MainPage.module.css";
 import { Link } from "react-router-dom";
 import Bamboo from "../img/Bamboo.png";
 import Circle1 from "../img/circle1.png";
@@ -32,7 +33,8 @@ const Elements = styled.div`
   align-items: center;
   flex-direction: column;
   h1 {
-    font-size: 50px;
+    font-size: 70px;
+    margin: 20px 0 0;
   }
 
   img {

@@ -52,13 +52,14 @@ const Section = styled.div`
   }
 `;
 
-const Elements = styled.div`
+const Elements = styled.form`
   z-index: 10;
   display: flex;
   align-items: center;
   flex-direction: column;
   h1 {
     font-size: 50px;
+    margin-bottom: 10px;
   }
 
   button {
@@ -116,7 +117,8 @@ const Input = styled.div`
     left: 0px;
     top: 15px;
     font-size: 20px;
-    color: #999;
+    font-weight: 600;
+    color: #505050;
     transition: all 0.5s ease;
   }
 `;
@@ -135,7 +137,7 @@ export default function SignUpPage() {
       <ContainerBox>
         <Section>
           <Elements>
-            <h1>SignUp</h1>
+            <h1>SINGUP</h1>
             <Input>
               <TextInput>
                 <input
@@ -148,7 +150,7 @@ export default function SignUpPage() {
               </TextInput>
               <TextInput>
                 <input
-                  type="text"
+                  type="id"
                   autocomplete="off"
                   required
                   placeholder="영문 소문자 + 숫자를 4~20자 이내로 입력해주세요."
@@ -157,7 +159,7 @@ export default function SignUpPage() {
               </TextInput>
               <TextInput>
                 <input
-                  type="text"
+                  /*type="password"*/
                   autocomplete="off"
                   required
                   placeholder="영문 소문자 + 숫자를 6~20자 이내로 입력해주세요"
@@ -166,7 +168,7 @@ export default function SignUpPage() {
               </TextInput>
               <TextInput>
                 <input
-                  type="text"
+                  /*type="password"*/
                   autocomplete="off"
                   required
                   placeholder="비밀번호를 다시 입력해주세요."
@@ -177,7 +179,7 @@ export default function SignUpPage() {
             <button id="btn1" type="submit">
               대나무 만들기
             </button>
-            <Link to="/">
+            <Link to="/MyBamboo">
               <button id="btn2">대나무 만들기</button>
             </Link>
           </Elements>

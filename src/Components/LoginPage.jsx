@@ -53,7 +53,6 @@ const Section = styled.div`
 `;
 
 const Elements = styled.div`
-  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -78,11 +77,12 @@ const Input = styled.div`
     width: 390px;
     height: 35px;
     margin: 0 0 40px 0;
-    padding: 50px 10px 0 0;
+    padding: 50px 10px 0 5px;
     background-color: transparent;
     border: none;
     border-bottom: 2px solid #608182;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 500;
     color: #000;
     outline: none;
   }
@@ -90,8 +90,9 @@ const Input = styled.div`
     position: absolute;
     left: 0px;
     top: 15px;
-    font-size: 20px;
-    color: #999;
+    font-size: 25px;
+    font-weight: 600;
+    color: #505050;
     transition: all 0.5s ease;
   }
 `;
@@ -114,7 +115,11 @@ const Button = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
   button {
+    position: absolute;
+    bottom: 0;
+    left: -192px;
     margin-top: 20px;
     width: 390px;
     height: 55px;
@@ -126,10 +131,12 @@ const Button = styled.div`
 
   //button1
   #loginBtn1 {
+    bottom: 80px;
     background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
   }
 
   #loginBtn2 {
+    bottom: 80px;
     background: #639a55;
     transition: 0.3s;
   }
@@ -139,7 +146,6 @@ const Button = styled.div`
 
   //button2
   #singupBtn1 {
-    top: 150px;
     background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
   }
 
@@ -153,6 +159,12 @@ const Button = styled.div`
 `;
 
 function LoginPage() {
+  const CheckEnter = (event) => {
+    if (event.key === 13) {
+      alert("Enter");
+    }
+  };
+
   return (
     <Container>
       <img id="Circle1" src={Circle1} alt="" />
@@ -169,6 +181,7 @@ function LoginPage() {
                   id="id"
                   autocomplete="off"
                   required
+                  onKeyPress={CheckEnter}
                 />
                 <label for="id">ID</label>
               </IdInput>
