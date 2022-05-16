@@ -34,6 +34,7 @@ const Container = styled.div`
 
 const Elements = styled.div`
   position: relative;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -56,14 +57,15 @@ const Elements = styled.div`
 `;
 
 const Button = styled.div`
-  z-index: 10;
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
-
+  border: 1px solid red;
   button {
+    position: absolute;
+    bottom: 0;
     margin-top: 20px;
     width: 390px;
     height: 55px;
@@ -71,20 +73,21 @@ const Button = styled.div`
     border: none;
     color: #fff;
     font-size: 20px;
+    border: 1px solid red;
   }
 
-  #Memobtn1 {
-    bottom: 0px;
+  #MemoBtn1 {
+    bottom: 80px;
     background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
   }
 
-  #Memobtn2 {
-    bottom: 0px;
+  #MemoBtn2 {
+    bottom: 80px;
     background: #639a55;
     transition: 0.3s;
   }
 
-  #Memobtn2:hover {
+  #MemoBtn2:hover {
     opacity: 0;
   }
 
