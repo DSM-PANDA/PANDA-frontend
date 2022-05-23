@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import ContainerBox from "./ContainerBox";
-import Bamboo from "../img/Bamboo.png";
-import Circle1 from "../img/UsersCircle1.png";
-import Circle2 from "../img/UsersCircle2.png";
+import ContainerBox from "../ContainerBox";
+import Bamboo from "../../img/Bamboo.png";
+import Circle1 from "../../img/UsersCircle1.png";
+import Circle2 from "../../img/UsersCircle2.png";
 
 const Container = styled.div`
   position: relative;
@@ -18,17 +18,17 @@ const Container = styled.div`
   #Circle1 {
     position: absolute;
     left: 0;
-    bottom: 0;
-    width: 541px;
-    height: 591px;
+    top: 0;
+    width: 598px;
+    height: 587px;
   }
 
   #Circle2 {
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
-    width: 523px;
-    height: 647px;
+    width: 478px;
+    height: 686px;
   }
 `;
 
@@ -57,12 +57,12 @@ const Elements = styled.div`
 `;
 
 const Button = styled.div`
-  position: absolute;
+  width: 100%;
+  height: 100%;
   bottom: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid red;
   button {
     position: absolute;
     bottom: 0;
@@ -73,16 +73,15 @@ const Button = styled.div`
     border: none;
     color: #fff;
     font-size: 20px;
-    border: 1px solid red;
   }
 
   #MemoBtn1 {
-    bottom: 80px;
+    bottom: 86px;
     background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
   }
 
   #MemoBtn2 {
-    bottom: 80px;
+    bottom: 86px;
     background: #639a55;
     transition: 0.3s;
   }
@@ -92,10 +91,12 @@ const Button = styled.div`
   }
 
   #SingupBtn1 {
+    bottom: 20px;
     background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
   }
 
   #SingupBtn2 {
+    bottom: 20px;
     background: #639a55;
     transition: 0.3s;
   }

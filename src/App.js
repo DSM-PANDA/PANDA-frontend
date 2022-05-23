@@ -2,9 +2,10 @@ import MainPage from "./Components/MainPage";
 import LoginPage from "./Components/LoginPage";
 import SignUpPage from "./Components/SignUpPage";
 import MyPage from "./Components/Mypage";
-import UsersPage from "./Components/UsersPage";
+import UsersPage from "./Components/UserPage/UsersPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Page/Home";
+import ChoiceMemo from "./Components/UserPage/ChoiceMemo";
+import WhiteMemo from "./Components/MemoPage/WhiteMemo";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route path="/SignUp" element={<SignUpPage />} />
           <Route path="/MyBamboo" element={<MyPage />} />
           <Route path="/UsersBamboo" element={<UsersPage />} />
+          <Route path="/ChoiceMemo" element={<ChoiceMemo />} />
+          <Route path="/WriteMemo" element={<WhiteMemo />} />
         </Routes>
       </BrowserRouter>
     </>
