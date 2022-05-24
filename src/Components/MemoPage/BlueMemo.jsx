@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import ContainerBox from "../ContainerBox";
 import Background from "../UserPage/Background";
-import Memo1 from "../../img/Memos/Memo1.png";
+import Memo5 from "../../img/Memos/Memo5.png";
 
 const Elements = styled.div`
   position: relative;
@@ -23,6 +23,7 @@ const Elements = styled.div`
     width: 1000px;
     height: 600px;
   }
+
   textarea {
     position: absolute;
     margin-top: 30px;
@@ -31,23 +32,24 @@ const Elements = styled.div`
     height: 260px;
     resize: none;
     border: none;
+    border-radius: 8px;
     outline: none;
+    background-color: #8fbff2;
     font-size: 18px;
-    overflow: auto;
   }
   textarea::-webkit-scrollbar {
     width: 12px;
   }
   textarea::-webkit-scrollbar-thumb {
-    background-color: #9d9d9d;
+    background-color: #278cf8;
     border-radius: 10px;
     background-clip: padding-box;
-    box-shadow: inset 0px 0px 3px #9ab794;
+    box-shadow: inset 0px 0px 3px #007bff;
   }
   textarea::-webkit-scrollbar-track {
-    background-color: #c2cbc1d7;
+    background-color: #c7e2ff;
     border-radius: 10px;
-    box-shadow: inset 0px 0px 3px #c2c2c2;
+    box-shadow: inset 0px 0px 3px #8fbff2;
   }
 `;
 
@@ -82,7 +84,7 @@ const Button = styled.div`
   }
 `;
 
-function WhiteMemo() {
+function BlueMemo() {
   const [whiteList, setWhiteList] = useState([]);
   const [whiteMemo, setWhiteMemo] = useState([]);
 
@@ -92,7 +94,6 @@ function WhiteMemo() {
 
   useEffect(() => {
     console.log(whiteList);
-    console.log("fkfkfkfk");
   }, [whiteList]);
 
   const onClickAddButton = () => {
@@ -111,7 +112,7 @@ function WhiteMemo() {
       <ContainerBox>
         <Elements>
           <h1>USER</h1>
-          <img src={Memo1} alt="" />
+          <img src={Memo5} alt="" />
           <textarea type="text" onChange={onChangeInput} />
           <Button>
             <Link to="/NameInput">
@@ -129,4 +130,4 @@ function WhiteMemo() {
   );
 }
 
-export default WhiteMemo;
+export default BlueMemo;
