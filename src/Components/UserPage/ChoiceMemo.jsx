@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import ContainerBox from "../ContainerBox";
 import Background from "./Background";
 import Memo1 from "../../img/Memos/Memo1.png";
@@ -34,35 +35,8 @@ const Memos = styled.div`
     background-color: #eafbf4;
     border-radius: 13px;
   }
-`;
-
-const Button = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  button {
-    position: absolute;
-    bottom: 0;
-    margin-top: 20px;
-    width: 390px;
-    height: 55px;
-    border-radius: 21px;
-    border: none;
-    color: #fff;
-    font-size: 20px;
-  }
-  #btn1 {
-    bottom: 45px;
-    background: linear-gradient(126.86deg, #2ea849 29.75%, #82c970 71.43%);
-  }
-  #btn2 {
-    bottom: 45px;
-    background: #639a55;
-    transition: 0.3s;
-  }
-  #btn2:hover {
-    opacity: 0;
+  #div {
+    margin-top: 30px;
   }
 `;
 
@@ -73,21 +47,29 @@ function ChoiceMemo() {
         <Elements>
           <h1>쪽지를 골라주세요!</h1>
           <Memos>
-            <div>
-              <img src={Memo1} alt="" />
-              <img src={Memo2} alt="" />
-              <img src={Memo3} alt="" />
+            <div id="div">
+              <Link to="/WhiteMemo">
+                <img src={Memo1} alt="" />
+              </Link>
+              <Link to="/RedMemo">
+                <img src={Memo2} alt="" />
+              </Link>
+              <Link to="/OrangeMemo">
+                <img src={Memo3} alt="" />
+              </Link>
             </div>
-            <div>
-              <img src={Memo4} alt="" />
-              <img src={Memo5} alt="" />
-              <img src={Memo6} alt="" />
+            <div id="div">
+              <Link to="/YellowMemo">
+                <img src={Memo4} alt="" />
+              </Link>
+              <Link to="/BlueMemo">
+                <img src={Memo5} alt="" />
+              </Link>
+              <Link to="/purpleMemo">
+                <img src={Memo6} alt="" />
+              </Link>
             </div>
           </Memos>
-          <Button>
-            <button id="btn1">쪽지 달아주기</button>
-            <button id="btn2">쪽지 달아주기</button>
-          </Button>
         </Elements>
       </ContainerBox>
     </Background>
