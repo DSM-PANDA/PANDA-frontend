@@ -49,8 +49,8 @@ const Elements = styled.div`
   }
 
   img {
-    width: 450px;
-    height: 450px;
+    width: 430px;
+    height: 430px;
   }
 
   button {

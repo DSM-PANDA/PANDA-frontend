@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import ContainerBox from "../ContainerBox";
 import Bamboo from "../../img/Bamboo.png";
 import Circle1 from "../../img/UsersCircle1.png";
@@ -65,6 +66,7 @@ const Button = styled.div`
   flex-direction: column;
   button {
     position: absolute;
+    left: 15%;
     bottom: 0;
     margin-top: 20px;
     width: 390px;
@@ -121,14 +123,19 @@ function UsersPage() {
           </div>
           <img src={Bamboo} alt="" />
           <Button>
-            <button id="MemoBtn1" type="submit">
-              쪽지 달아주러 가기
-            </button>
-            <button id="MemoBtn2" type="submit">
-              쪽지 달아주러 가기
-            </button>
-            <button id="SingupBtn1">내 대나무 만들러 가기</button>
-            <button id="SingupBtn2">내 대나무 만들러 가기</button>
+            <Link to="/ChoiceMemo">
+              <button id="MemoBtn1" type="submit">
+                쪽지 달아주러 가기
+              </button>
+              <button id="MemoBtn2" type="submit">
+                쪽지 달아주러 가기
+              </button>
+            </Link>
+
+            <Link to="/login">
+              <button id="SingupBtn1">내 대나무 만들러 가기</button>
+              <button id="SingupBtn2">내 대나무 만들러 가기</button>
+            </Link>
           </Button>
         </Elements>
       </ContainerBox>
