@@ -121,6 +121,17 @@ const Input = styled.div`
     color: #505050;
     transition: all 0.5s ease;
   }
+  span {
+    position: absolute;
+    left: 40px;
+    top: 15px;
+    padding: 2px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #639a55;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px #608182;
+  }
 `;
 
 const TextInput = styled.div`
@@ -147,6 +158,7 @@ export default function SignUpPage() {
                   placeholder="10자 이내로 입력해 주세요."
                 />
                 <label>이름</label>
+                <span>중복 확인</span>
               </TextInput>
               <TextInput>
                 <input

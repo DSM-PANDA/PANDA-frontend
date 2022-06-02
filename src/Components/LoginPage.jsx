@@ -52,7 +52,7 @@ const Section = styled.div`
   }
 `;
 
-const Elements = styled.div`
+const Elements = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -158,12 +158,12 @@ const Button = styled.div`
   }
 `;
 
-function LoginPage() {
-  const CheckEnter = (event) => {
-    if (event.key === 13) {
-      alert("Enter");
+export default function LoginPage() {
+  function gapEvent() {
+    if (0 === 0) {
+      alert("fdsl");
     }
-  };
+  }
 
   return (
     <Container>
@@ -177,22 +177,14 @@ function LoginPage() {
               <IdInput>
                 <input
                   type="text"
-                  name="id"
-                  id="id"
                   autocomplete="off"
                   required
-                  onKeyPress={CheckEnter}
+                  onKeyDown={gapEvent}
                 />
                 <label for="id">ID</label>
               </IdInput>
               <PwInput>
-                <input
-                  type="text"
-                  name="pw"
-                  id="pw"
-                  autocomplete="off"
-                  required
-                />
+                <input type="text" autocomplete="off" required />
                 <label for="pw">PW</label>
               </PwInput>
             </Input>
@@ -200,7 +192,7 @@ function LoginPage() {
               <button id="loginBtn1" type="submit">
                 로그인 하기
               </button>
-              <button id="loginBtn2" type="submit">
+              <button id="loginBtn2" type="submit" onClick={gapEvent}>
                 로그인 하기
               </button>
               <Link to="/SignUp">
@@ -214,5 +206,3 @@ function LoginPage() {
     </Container>
   );
 }
-
-export default LoginPage;
