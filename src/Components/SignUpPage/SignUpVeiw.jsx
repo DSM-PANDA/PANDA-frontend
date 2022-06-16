@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import ContainerBox from "./ContainerBox";
-import Bamboo from "../img/Bamboo.png";
-import Circle1 from "../img/loginCircle1.png";
-import Circle2 from "../img/loginCircle2.png";
-import axios from "axios";
-import { useEffect } from "react";
-import { request } from "../api/api";
+import ContainerBox from "../ContainerBox";
+import Bamboo from "../../img/Bamboo.png";
+import Circle1 from "../../img/loginCircle1.png";
+import Circle2 from "../../img/loginCircle2.png";
+import { IoEyeSharp } from "react-icons/io5";
+import { BsEyeSlash } from "react-icons/bs";
 
 const Container = styled.div`
   position: relative;
@@ -88,6 +87,7 @@ const Elements = styled.form`
 
   #btn2:hover {
     opacity: 0;
+    cursor: pointer;
   }
 `;
 
@@ -134,6 +134,17 @@ const Input = styled.div`
     background-color: #639a55;
     border-radius: 3px;
     box-shadow: 1px 1px 1px #608182;
+    cursor: pointer;
+  }
+  #show {
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+    padding: 2px;
+    background: none;
+    box-shadow: none;
+    color: #505050;
+    cursor: pointer;
   }
 `;
 
@@ -143,62 +154,15 @@ const TextInput = styled.div`
   margin: 0 0;
 `;
 
-export default function SignUpPage() {
-  const [info, setInfo] = useState("");
-  const [inputValue, setInputValue] = useState({
-    userName: "",
-    id: "",
-    password1: "",
-    password2: "",
-  });
-
-  const { userName, id, password1, password2 } = info;
-
-  const chkvalue = (e) => {
-    const { name, value } = e.target;
-    setInfo({
-      ...info,
-      [name]: value,
-    });
-  };
-
-  const onSubmit = (event) => {
-    //event.preventDefault();
-    const { password1, password2 } = inputValue;
-    if (password1 !== password2) {
-      return alert("비밀번호와 비밀번호확인은 같아야 합니다.");
-    }
-  };
-
-  const instance = axios.create({
-    baseURL: "http://15.165.54.186:8081",
-  });
-
-  const getRequest = async () => {
-    const data = await request("/auth/signup", "POST", {
-      name: "String",
-      accountId: "String",
-      password: "String",
-    });
-
-    setInfo(data);
-  };
-
-  useEffect(() => {
-    //getRequest(/);
-  }, []);
-
-  /*function gapEvent(event) {
-    if (event.keyCode === 13 && inputValue === "") {
-      alert("내용을 입력해주세요.");
-      console.log("sdflsk");
-    }
-  }
-
-  const change = (e) => {
-    setInputValue(e.target.value);
-  };*/
-
+export default function SignUpPage({
+  chkvalue,
+  checkKey,
+  handleShowPw1,
+  handleShowPw2,
+  showPw1,
+  showPw2,
+  inputValue,
+}) {
   return (
     <Container>
       <img id="Circle1" src={Circle1} alt="" />
@@ -218,6 +182,8 @@ export default function SignUpPage() {
                   maxlength="10"
                   placeholder="10자 이내로 입력해 주세요."
                   onChange={chkvalue}
+                  onKeyDown={checkKey}
+                  value={inputValue.userName}
                 />
                 <label>이름</label>
                 <span>중복 확인</span>
@@ -230,8 +196,10 @@ export default function SignUpPage() {
                   required
                   minlength="1"
                   maxlength="10"
-                  placeholder="영문 소문자 + 숫자를 4~20자 이내로 입력해주세요."
-                  onChange={chkvalue}
+                  placeholder="영문 + 숫자를 4~20자 이내로 입력해주세요."
+                  onChange={checkKey}
+                  onKeyDown={checkKey}
+                  value={inputValue.id}
                 />
                 <label>아이디</label>
               </TextInput>
@@ -241,12 +209,25 @@ export default function SignUpPage() {
                   name="Password"
                   autocomplete="off"
                   required
+                  type={showPw1.type1}
                   minlength="6"
                   maxlength="20"
-                  placeholder="영문 소문자 + 숫자를 6~20자 이내로 입력해주세요"
+                  placeholder="영문 + 숫자 + 특수문자를 6~20자 이내로 입력해주세요."
                   onChange={chkvalue}
+                  onKeyDown={checkKey}
                 />
                 <label>비밀번호</label>
+                <p onClick={handleShowPw1}>
+                  {showPw1.visible1 ? (
+                    <p id="show">
+                      <BsEyeSlash />
+                    </p>
+                  ) : (
+                    <p id="show">
+                      <IoEyeSharp />
+                    </p>
+                  )}
+                </p>
               </TextInput>
               <TextInput>
                 <input
@@ -254,19 +235,30 @@ export default function SignUpPage() {
                   name="Password"
                   autocomplete="off"
                   required
+                  type={showPw2.type2}
                   minlength="6"
                   maxlength="20"
                   placeholder="비밀번호를 다시 입력해주세요."
                   onChange={chkvalue}
+                  onKeyDown={checkKey}
                 />
                 <label>비밀번호 확인</label>
+                <p onClick={handleShowPw2}>
+                  {showPw2.visible2 ? (
+                    <p id="show">
+                      <BsEyeSlash />
+                    </p>
+                  ) : (
+                    <p id="show">
+                      <IoEyeSharp />
+                    </p>
+                  )}
+                </p>
               </TextInput>
             </Input>
             <button id="btn1">대나무 만들기</button>
             {/* <Link to="/MyBamboo"> */}
-            <button id="btn2" onClick={onSubmit}>
-              대나무 만들기
-            </button>
+            <button id="btn2">대나무 만들기</button>
             {/* </Link> */}
           </Elements>
         </Section>
