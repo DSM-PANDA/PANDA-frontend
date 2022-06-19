@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import SignUpVeiw from "./SignUpVeiw";
-import axios from "axios";
 import { request } from "../../api/api";
 export default function SignUpJs() {
   const [info, setInfo] = useState("");
@@ -28,20 +27,23 @@ export default function SignUpJs() {
   const chkvalue = (e) => {
     let { name, value } = e.target;
 
-    if (name == "userName" || name == "id") {
-      value = value.replace(/[\W]/, "");
-    }
-
     setInputValue({
       ...inputValue,
       [name]: value,
     });
   };
 
-  const checkKey = (event) => {
+  const checkspacebar = (event) => {
     if (event.keyCode === 32) {
       alert("빈칸은 입력할 수 없습니다.");
     }
+  };
+
+  const checkPassword = (e) => {
+    //  8 ~ 10자 영문, 숫자 조합
+    const regExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+    // 형식에 맞는 경우 true 리턴
+    console.log("비밀번호 유효성 검사 :: ", regExp.test(e.target.value));
   };
 
   const handleShowPw1 = () => {
@@ -73,14 +75,15 @@ export default function SignUpJs() {
   };
 
   useEffect(() => {
-    getRequest();
+    //getRequest();
   }, []);
 
   const props = {
     chkvalue,
-    checkKey,
+    checkspacebar,
     handleShowPw1,
     handleShowPw2,
+    checkPassword,
     showPw1,
     showPw2,
     inputValue,

@@ -156,9 +156,10 @@ const TextInput = styled.div`
 
 export default function SignUpPage({
   chkvalue,
-  checkKey,
+  checkspacebar,
   handleShowPw1,
   handleShowPw2,
+  checkPassword,
   showPw1,
   showPw2,
   inputValue,
@@ -182,7 +183,7 @@ export default function SignUpPage({
                   maxlength="10"
                   placeholder="10자 이내로 입력해 주세요."
                   onChange={chkvalue}
-                  onKeyDown={checkKey}
+                  onKeyDown={checkspacebar}
                   value={inputValue.userName}
                 />
                 <label>이름</label>
@@ -196,9 +197,9 @@ export default function SignUpPage({
                   required
                   minlength="1"
                   maxlength="10"
-                  placeholder="영문 + 숫자를 4~20자 이내로 입력해주세요."
-                  onChange={checkKey}
-                  onKeyDown={checkKey}
+                  placeholder="10자 이내로 입력해 주세요."
+                  onChange={chkvalue}
+                  onKeyDown={checkspacebar}
                   value={inputValue.id}
                 />
                 <label>아이디</label>
@@ -214,7 +215,8 @@ export default function SignUpPage({
                   maxlength="20"
                   placeholder="영문 + 숫자 + 특수문자를 6~20자 이내로 입력해주세요."
                   onChange={chkvalue}
-                  onKeyDown={checkKey}
+                  onKeyDown={checkspacebar}
+                  onBlur={checkPassword}
                 />
                 <label>비밀번호</label>
                 <p onClick={handleShowPw1}>
@@ -240,7 +242,8 @@ export default function SignUpPage({
                   maxlength="20"
                   placeholder="비밀번호를 다시 입력해주세요."
                   onChange={chkvalue}
-                  onKeyDown={checkKey}
+                  onKeyDown={checkspacebar}
+                  onBlur={checkPassword}
                 />
                 <label>비밀번호 확인</label>
                 <p onClick={handleShowPw2}>
