@@ -159,11 +159,16 @@ const Button = styled.div`
 `;
 
 export default function LoginPage() {
-  function gapEvent() {
-    if (0 === 0) {
-      alert("fdsl");
+  const [inputValue, setInputValue] = useState("");
+  function gapEvent(event) {
+    if (event.keyCode === 13 && inputValue === "") {
+      alert("내용을 입력해주세요.");
     }
   }
+
+  const change = (e) => {
+    setInputValue(e.target.value);
+  };
 
   return (
     <Container>
@@ -180,6 +185,8 @@ export default function LoginPage() {
                   autocomplete="off"
                   required
                   onKeyDown={gapEvent}
+                  onChange={change}
+                  value={inputValue}
                 />
                 <label for="id">ID</label>
               </IdInput>
