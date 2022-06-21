@@ -27,6 +27,21 @@ export default function SignUpJs() {
   const chkvalue = (e) => {
     let { name, value } = e.target;
 
+    if (
+      name == "userName" ||
+      name == "id" ||
+      name == "password1" ||
+      name == "password2"
+    ) {
+      value = value.replace(/[\s]/, "");
+    }
+    if (name == "password1" || name == "password2") {
+      console.log(value.match(/[^a-zA-Z0-9~!@#$%^&*()_+<>?:{}\-]/g));
+      if (value.match(/[^a-zA-Z0-9~!@#$%^&*()_+<>?:{}\-]/g)) {
+        alert("영문, 숫자, 특수문자만 입력이 가능합니다.");
+      }
+      value = value.replace(/[^a-zA-Z0-9~!@#$%^&*()_+<>?:{}\-]/g, "");
+    }
     setInputValue({
       ...inputValue,
       [name]: value,
@@ -39,11 +54,10 @@ export default function SignUpJs() {
     }
   };
 
-  const checkPassword = (e) => {
-    //  8 ~ 10자 영문, 숫자 조합
-    const regExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    // 형식에 맞는 경우 true 리턴
-    console.log("비밀번호 유효성 검사 :: ", regExp.test(e.target.value));
+  const checkPassword = () => {
+    if (password1 || password2 !== /[a-z|A-Z|0-9|~!@#$%^&*()_+|<>?:{}]/) {
+      // alert("영문, 숫자, 특수문자만 입력할 수 있습니다.");
+    }
   };
 
   const handleShowPw1 = () => {
@@ -81,9 +95,9 @@ export default function SignUpJs() {
   const props = {
     chkvalue,
     checkspacebar,
+    checkPassword,
     handleShowPw1,
     handleShowPw2,
-    checkPassword,
     showPw1,
     showPw2,
     inputValue,
