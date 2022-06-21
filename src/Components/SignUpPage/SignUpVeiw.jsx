@@ -157,9 +157,9 @@ const TextInput = styled.div`
 export default function SignUpPage({
   chkvalue,
   checkspacebar,
+  checkPassword,
   handleShowPw1,
   handleShowPw2,
-  checkPassword,
   showPw1,
   showPw2,
   inputValue,
@@ -206,17 +206,16 @@ export default function SignUpPage({
               </TextInput>
               <TextInput>
                 <input
-                  id="textPassword1"
-                  name="Password"
                   autocomplete="off"
                   required
                   type={showPw1.type1}
                   minlength="6"
                   maxlength="20"
+                  name="password1"
                   placeholder="영문 + 숫자 + 특수문자를 6~20자 이내로 입력해주세요."
                   onChange={chkvalue}
-                  onKeyDown={checkspacebar}
-                  onBlur={checkPassword}
+                  onKeyDown={(checkspacebar, checkPassword)}
+                  value={inputValue.password1}
                 />
                 <label>비밀번호</label>
                 <p onClick={handleShowPw1}>
@@ -233,17 +232,16 @@ export default function SignUpPage({
               </TextInput>
               <TextInput>
                 <input
-                  id="textPassword2"
-                  name="Password"
                   autocomplete="off"
                   required
                   type={showPw2.type2}
                   minlength="6"
                   maxlength="20"
+                  name="password2"
                   placeholder="비밀번호를 다시 입력해주세요."
                   onChange={chkvalue}
-                  onKeyDown={checkspacebar}
-                  onBlur={checkPassword}
+                  onKeyDown={(checkspacebar, checkPassword)}
+                  value={inputValue.password2}
                 />
                 <label>비밀번호 확인</label>
                 <p onClick={handleShowPw2}>
