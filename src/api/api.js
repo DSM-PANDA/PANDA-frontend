@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const BASE_URL = "http://15.165.54.186:8080";
+const BASE_URL = "http://15.165.54.186:8081";
 
 const instance = axios.create({
-  baseURL: "http://15.165.54.186:8080",
+  baseURL: "http://15.165.54.186:8081",
 });
 
 export const request = async (url, method, data) => {
