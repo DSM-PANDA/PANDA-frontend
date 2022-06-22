@@ -4,6 +4,8 @@ import { request } from "../../api/api";
 export default function SignUpJs() {
   const [info, setInfo] = useState("");
 
+  const [checkSubmit, setCheckSubmit] = useState(false);
+
   const [showPw1, setShowPw1] = useState({
     type1: "password",
     visible1: false,
@@ -54,9 +56,18 @@ export default function SignUpJs() {
     }
   };
 
-  const checkPassword = () => {
-    if (password1 || password2 !== /[a-z|A-Z|0-9|~!@#$%^&*()_+|<>?:{}]/) {
-      // alert("영문, 숫자, 특수문자만 입력할 수 있습니다.");
+  const handlePassword = () => {
+    console.log("------------");
+    console.log(password1, password2);
+    if (password1 !== password2) {
+      alert("비밀번호가 동일하지 않습니다.");
+      setCheckSubmit(false);
+      console.log(checkSubmit);
+      console.log("false");
+    } else {
+      setCheckSubmit(true);
+      console.log(checkSubmit);
+      console.log("true");
     }
   };
 
@@ -88,6 +99,10 @@ export default function SignUpJs() {
     setInfo(data);
   };
 
+  const submit = (e) => {
+    e.preventDefault();
+  };
+
   useEffect(() => {
     //getRequest();
   }, []);
@@ -95,12 +110,13 @@ export default function SignUpJs() {
   const props = {
     chkvalue,
     checkspacebar,
-    checkPassword,
+    handlePassword,
     handleShowPw1,
     handleShowPw2,
     showPw1,
     showPw2,
     inputValue,
+    submit,
   };
   return (
     <>

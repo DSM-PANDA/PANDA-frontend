@@ -157,12 +157,13 @@ const TextInput = styled.div`
 export default function SignUpPage({
   chkvalue,
   checkspacebar,
-  checkPassword,
+  handlePassword,
   handleShowPw1,
   handleShowPw2,
   showPw1,
   showPw2,
   inputValue,
+  submit,
 }) {
   return (
     <Container>
@@ -214,7 +215,7 @@ export default function SignUpPage({
                   name="password1"
                   placeholder="영문 + 숫자 + 특수문자를 6~20자 이내로 입력해주세요."
                   onChange={chkvalue}
-                  onKeyDown={(checkspacebar, checkPassword)}
+                  onKeyDown={checkspacebar}
                   value={inputValue.password1}
                 />
                 <label>비밀번호</label>
@@ -240,7 +241,8 @@ export default function SignUpPage({
                   name="password2"
                   placeholder="비밀번호를 다시 입력해주세요."
                   onChange={chkvalue}
-                  onKeyDown={(checkspacebar, checkPassword)}
+                  onBlur={handlePassword}
+                  onKeyDown={checkspacebar}
                   value={inputValue.password2}
                 />
                 <label>비밀번호 확인</label>
@@ -259,7 +261,9 @@ export default function SignUpPage({
             </Input>
             <button id="btn1">대나무 만들기</button>
             {/* <Link to="/MyBamboo"> */}
-            <button id="btn2">대나무 만들기</button>
+            <button id="btn2" onClick={submit}>
+              대나무 만들기
+            </button>
             {/* </Link> */}
           </Elements>
         </Section>
