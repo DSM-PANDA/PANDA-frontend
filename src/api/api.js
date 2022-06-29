@@ -13,7 +13,10 @@ export const request = async (url, method, data) => {
       method,
       data,
     })
-    .then((res) => res.data);
+    .then((res) => res.data)
+    .catch((err) => {
+      throw new Error(err);
+    });
 };
 
 //request("/login", "post", { id: 12334, pw: 123 });
