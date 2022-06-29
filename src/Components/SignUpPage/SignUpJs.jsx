@@ -57,17 +57,12 @@ export default function SignUpJs() {
   };
 
   const handlePassword = () => {
-    console.log("------------");
     console.log(password1, password2);
     if (password1 !== password2) {
       alert("비밀번호가 동일하지 않습니다.");
       setCheckSubmit(false);
-      console.log(checkSubmit);
-      console.log("false");
     } else {
       setCheckSubmit(true);
-      console.log(checkSubmit);
-      console.log("true");
     }
   };
 
@@ -89,23 +84,25 @@ export default function SignUpJs() {
     });
   };
 
-  const getRequest = async () => {
-    const data = await request("/auth/signup", "POST", {
-      name: "String",
-      accountId: "String",
-      password: "String",
-    });
+  const duplicatecheck = () => {};
 
-    setInfo(data);
+  const getRequest = async () => {
+    const data = {
+      name: userName,
+      accountId: id,
+      password: password1,
+    };
+
+    const data2 = await request("/auth/signup", "POST", data);
   };
 
   const submit = (e) => {
     e.preventDefault();
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     //getRequest();
-  }, []);
+  }, []);*/
 
   const props = {
     chkvalue,
@@ -116,6 +113,7 @@ export default function SignUpJs() {
     showPw1,
     showPw2,
     inputValue,
+    checkSubmit,
     submit,
   };
   return (
