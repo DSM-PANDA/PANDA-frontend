@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SignUpVeiw from "./SignUpVeiw";
 import { request } from "../../api/api";
 export default function SignUpJs() {
-  const [info, setInfo] = useState("");
+  const [checkId, setCheckId] = useState();
 
   const [checkSubmit, setCheckSubmit] = useState(false);
 
@@ -84,7 +84,11 @@ export default function SignUpJs() {
     });
   };
 
-  const duplicatecheck = () => {};
+  const duplicatecheck = async () => {
+    throw new Error("yubin");
+    console.log("fsldkjflk");
+    const data2 = await request(`/auth/${userName}`, "GET");
+  };
 
   const getRequest = async () => {
     const data = {
@@ -94,18 +98,16 @@ export default function SignUpJs() {
     };
 
     const data2 = await request("/auth/signup", "POST", data);
+    console.log(data2);
   };
 
   const submit = (e) => {
-    e.preventDefault();
+    getRequest();
   };
-
-  /* useEffect(() => {
-    //getRequest();
-  }, []);*/
 
   const props = {
     chkvalue,
+    duplicatecheck,
     checkspacebar,
     handlePassword,
     handleShowPw1,
