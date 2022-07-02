@@ -17,7 +17,6 @@ const Container = styled.div`
 const BackgroundImg = styled.div`
   width: 100%;
   height: 100%;
-  margin-bottom: 45px;
 
   &:after {
     content: "";
@@ -30,7 +29,6 @@ const BackgroundImg = styled.div`
     background-repeat: no-repeat;
     background-size: contain;
     opacity: 0.3;
-    z-index: 2;
   }
 `;
 
