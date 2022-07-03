@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Circle1 from "../../img/UsersCircle1.png";
-import Circle2 from "../../img/UsersCircle2.png";
+import Circle1 from "../../img/UserPage/UsersCircle1.png";
+import Circle2 from "../../img/UserPage/UsersCircle2.png";
 
 const Container = styled.div`
   position: relative;
