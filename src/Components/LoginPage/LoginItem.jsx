@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import styles from "../../styles/font.module.css";
+import { Link } from "react-router-dom";
 
 const Container = styled.form`
   height: 100%;
@@ -10,7 +11,7 @@ const Container = styled.form`
   h1 {
     text-align: center;
     font-size: 70px;
-    margin: 35px 0 0;
+    margin: 30px 0 0;
   }
 `;
 
@@ -21,7 +22,6 @@ const InputElements = styled.div`
   height: auto;
   margin-top: 35px;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 
@@ -96,17 +96,19 @@ export default function LoginItem() {
       <h1>Login</h1>
       <InputElements>
         <div className="LoginInput">
-          <label>ID</label>
           <input type="text" placeholder="ID를 입력해주세요." required />
+          <label>아이디(ID)</label>
         </div>
         <div className="LoginInput">
-          <label>PW</label>
           <input type="text" placeholder="PW를 입력해주세요." required />
+          <label>비밀번호(PW)</label>
         </div>
       </InputElements>
       <ButttonElements>
         <button id="login-btn1">로그인 하기</button>
-        <button id="login-btn2">회원가입 하기</button>
+        <Link to="/signup">
+          <button id="login-btn2">회원가입 하기</button>
+        </Link>
       </ButttonElements>
     </Container>
   );

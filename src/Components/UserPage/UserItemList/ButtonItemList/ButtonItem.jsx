@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   position: absolute;
@@ -30,8 +31,12 @@ const Container = styled.div`
 export default function ButtonItem() {
   return (
     <Container>
-      <button id="user-btn1">쪽지 달아주러 가기</button>
-      <button id="user-btn2">내 대나무 만들러 가기</button>
+      <Link to="/ChoiceNotes">
+        <button id="user-btn1">쪽지 달아주러 가기</button>
+      </Link>
+      <Link to="/login">
+        <button id="user-btn2">내 대나무 만들러 가기</button>
+      </Link>
     </Container>
   );
 }

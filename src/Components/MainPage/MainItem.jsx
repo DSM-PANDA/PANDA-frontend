@@ -1,12 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 import styles from "../../styles/font.module.css";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  h1 {
-    text-align: center;
-    font-size: 70px;
-    margin: 40px 0 0;
+  div {
+    position: relative;
+    h1 {
+      text-align: center;
+      font-size: 70px;
+      margin: 32px 0 0;
+    }
+
+    p {
+      position: absolute;
+      top: 65px;
+      left: 29%;
+      text-align: center;
+      font-size: 18px;
+    }
   }
 
   button {
@@ -31,8 +43,14 @@ const Container = styled.div`
 export default function MainItem() {
   return (
     <Container>
-      <h1>DSM-PANDA</h1>
-      <button>시작하기</button>
+      <div>
+        <h1>DSM-PANDA</h1>
+        <p>쪽지를 전하고 마음을 주고받으세요</p>
+      </div>
+
+      <Link to="/login">
+        <button>시작하기</button>
+      </Link>
     </Container>
   );
 }

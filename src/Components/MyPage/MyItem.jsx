@@ -38,7 +38,7 @@ export default function MyItem() {
       <h1>
         User님의 대나무에
         <br />
-        쪽지가 0개 달려있습니다.
+        0개의 쪽지가 전달됐습니다!
       </h1>
       <button>내 대나무 공유하기</button>
     </Container>
