@@ -1,14 +1,14 @@
 import React from "react";
 import Background from "./Background";
-import ContainerBox from "./LoginContainer";
-import LoginItem from "../LoginPage/LoginItem";
+import ContainerBox from "./MainContainer";
+import MainItem from "./MainItem";
 
-export default function LoginPage() {
+export default function MainVeiw() {
   return (
     <>
       <Background>
         <ContainerBox>
-          <LoginItem />
+          <MainItem />
         </ContainerBox>
       </Background>
     </>
