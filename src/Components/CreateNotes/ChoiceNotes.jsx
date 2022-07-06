@@ -10,6 +10,7 @@ import Memo5 from "../../img/Memos/Memo5.png";
 import Memo6 from "../../img/Memos/Memo6.png";
 import { Link } from "react-router-dom";
 import { RiArrowLeftSLine } from "react-icons/ri";
+import { useState } from "react";
 
 const Container = styled.div`
   position: relative;
@@ -43,7 +44,7 @@ const Container = styled.div`
   button {
     width: 390px;
     height: 50px;
-    margin-top: 40px;
+    margin-top: 65px;
     padding: 0 0;
     border-radius: 21px;
     border: none;
@@ -62,31 +63,68 @@ const Container = styled.div`
 const NoteList = styled.div`
   width: 450px;
   margin-top: 60px;
-  padding: 10px;
+  padding: 10px 3px;
   border: dashed 2px #4a7541;
   border-radius: 5%;
 `;
 
 const Notes = styled.div`
-  &:nth-child(2) {
-    margin-top: 50px;
-  }
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
 
-  img {
-    width: 30%;
-    height: auto;
-    margin: 0 7.5px;
-    border-radius: 10%;
-    transition: background-color 0.2s;
-  }
+  label {
+    width: 135px;
+    input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: 3px 7.5px;
 
-  img:hover {
-    background: #dff4e9;
-    /* box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25); */
+      visibility: hidden;
+      transition: background-color 0.2s;
+      cursor: pointer;
+    }
+
+    img:hover {
+      background: #dff4e9;
+      border-radius: 10%;
+      /* box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25); */
+    }
+
+    img {
+      width: 135px;
+      height: auto;
+    }
+
+    input[type="radio"]:checked + img {
+      background: #dff4e9;
+      border-radius: 10%;
+    }
   }
 `;
 
 export default function ChoiceNotes() {
+  const [focusNote, setFocusNote] = useState([]);
+
+  const onClickRadio = (e) => {
+    console.log(e.target.value);
+    setFocusNote(e.target.value);
+  };
+
+  const noteItemList = [
+    { name: "Note1", img: Memo1 },
+    { name: "Note2", img: Memo2 },
+    { name: "Note3", img: Memo3 },
+    { name: "Note4", img: Memo4 },
+    { name: "Note5", img: Memo5 },
+    { name: "Note6", img: Memo6 },
+  ];
+
   return (
     <Background>
       <ContainerBox>
@@ -98,29 +136,23 @@ export default function ChoiceNotes() {
           <h1>쪽지를 골라주세요!</h1>
           <NoteList>
             <Notes>
-              <Link to="/WriteNotes">
-                <img src={Memo1} alt="" />
-              </Link>
-              <Link to="/WriteNotes">
-                <img src={Memo2} alt="" />
-              </Link>
-              <Link to="/WriteNotes">
-                <img src={Memo3} alt="" />
-              </Link>
-            </Notes>
-            <Notes>
-              <Link to="/WriteNotes">
-                <img src={Memo4} alt="" />
-              </Link>
-              <Link to="/WriteNotes">
-                <img src={Memo5} alt="" />
-              </Link>
-              <Link to="/WriteNotes">
-                <img src={Memo6} alt="" />
-              </Link>
+              {noteItemList.map((list) => (
+                <label key={list.name}>
+                  <input
+                    type="radio"
+                    value={list.name}
+                    checked={focusNote === `${list.name}`}
+                    onChange={onClickRadio}
+                  />
+                  <img src={list.img} />
+                </label>
+              ))}
             </Notes>
           </NoteList>
-          <button>다음으로</button>
+
+          <Link to="/WriteNotes">
+            <button>다음으로</button>
+          </Link>
         </Container>
       </ContainerBox>
     </Background>
